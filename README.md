@@ -1,16 +1,6 @@
-# flutter_application_4
+# ШИПУНОВ ДЕНИС 
+# ПРАКТИЧЕМКАЯ РАБОТА №3
 
-A new Flutter project.
+Запуск на Chrome:
+![{1C004C0E-A1E9-474E-8B8D-266C45CDAE6D}](https://github.com/user-attachments/assets/f60a3b08-3f30-463a-bf94-4d3d0b4751a5)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
