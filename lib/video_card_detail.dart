@@ -3,7 +3,6 @@ import 'video_card.dart';
 
 class VideoCardDetail extends StatelessWidget {
   final VideoCard videoCard;
-
   const VideoCardDetail({super.key, required this.videoCard});
 
   @override
