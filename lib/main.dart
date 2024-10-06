@@ -6,7 +6,7 @@ import 'favorites_screen.dart';
 import 'profile_screen.dart';
 
 void main() {
-  runApp(VideoCardsApp());
+  runApp(const VideoCardsApp());
 }
 
 class VideoCardsApp extends StatelessWidget {
@@ -24,7 +24,7 @@ class VideoCardsApp extends StatelessWidget {
           bodyMedium: TextStyle(color: Colors.white),
         ),
       ),
-      home: VideoCardsList(),
+      home: const VideoCardsList(),
     );
   }
 }
@@ -83,7 +83,7 @@ class _VideoCardsListState extends State<VideoCardsList> {
 
   @override
   Widget build(BuildContext context) {
-    Widget _getBody() {
+    Widget getBody() {
       switch (_selectedIndex) {
         case 0:
           return _buildVideoCardsList();
@@ -117,11 +117,11 @@ class _VideoCardsListState extends State<VideoCardsList> {
           ),
         ],
       ),
-      body: _getBody(),
+      body: getBody(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.home),
             label: 'Видеокарты',
           ),
           BottomNavigationBarItem(

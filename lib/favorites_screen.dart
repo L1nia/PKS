@@ -4,7 +4,7 @@ import 'video_card.dart';
 class FavoritesScreen extends StatelessWidget {
   final List<VideoCard> favorites;
 
-  const FavoritesScreen({Key? key, required this.favorites}) : super(key: key);
+  const FavoritesScreen({super.key, required this.favorites});
 
   @override
   Widget build(BuildContext context) {

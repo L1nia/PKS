@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProfileScreen extends StatefulWidget {
   final Function(String, String, String) onUpdateProfile;
 
-  const ProfileScreen({Key? key, required this.onUpdateProfile}) : super(key: key);
+  const ProfileScreen({super.key, required this.onUpdateProfile});
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -13,6 +13,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +35,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
               controller: phoneController,
               decoration: const InputDecoration(labelText: 'Телефон'),
               keyboardType: TextInputType.phone,
+            ),
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(labelText: 'Почта'),
+              keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 20),
             ElevatedButton(
