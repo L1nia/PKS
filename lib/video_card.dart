@@ -3,5 +3,5 @@ class VideoCard {
      final String imageUrl;
      final double price;
 
-     VideoCard({required this.name, required this.imageUrl, required this.price});
+     VideoCard({required this.name, required this.imageUrl, required this.price, required id});
    }
