@@ -8,7 +8,7 @@
 # Добавлена страница корзины
 ![{18D9AF9A-A98F-4366-A199-F15725FE3F0C}](https://github.com/user-attachments/assets/13f17ffe-e31c-4e6b-8469-7ff84c136cf7)
 
-Код страницы 'Корзина': lib/cart_screen.dart .
+
 # Добавлен свайп влево для удаления товара из корзины
 
 
