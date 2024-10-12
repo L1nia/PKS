@@ -8,7 +8,7 @@
 # Добавлена страница корзины
 ![{18D9AF9A-A98F-4366-A199-F15725FE3F0C}](https://github.com/user-attachments/assets/13f17ffe-e31c-4e6b-8469-7ff84c136cf7)
 
-Код страницы 'Корзина': https://github.com/L1nia/PKS_6/commit/e1509038b0501e6e6deec26d50806d31f3d77ee0#diff-e7a5c032d7ca95cec27c1d547fee9b6db7e6cde55a9a5a10ea47bdc280fcc83c 
+Код страницы 'Корзина':[Корзина] (https://github.com/L1nia/PKS_6/commit/e1509038b0501e6e6deec26d50806d31f3d77ee0#diff-e7a5c032d7ca95cec27c1d547fee9b6db7e6cde55a9a5a10ea47bdc280fcc83c). 
 
 # Добавлен свайп влево для удаления товара из корзины
 
