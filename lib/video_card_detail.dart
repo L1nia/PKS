@@ -21,7 +21,7 @@ class VideoCardDetail extends StatelessWidget {
         title: Text(videoCard.name),
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite_border), 
+            icon: const Icon(Icons.favorite_border), 
             onPressed: () {
               toggleFavorite(videoCard); 
             },
