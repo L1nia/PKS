@@ -6,6 +6,8 @@ import 'video_card_detail.dart';
 import 'favorites_screen.dart';
 import 'profile_screen.dart';
 import 'cart.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); 
@@ -45,15 +47,30 @@ class VideoCardsList extends StatefulWidget {
 }
 
 class _VideoCardsListState extends State<VideoCardsList> {
-  final List<VideoCard> videoCards = [
-    VideoCard(id: 1, name: 'NVIDIA GEFORCE GTX 1080 Ti', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_a8-t33HEfFvhddCYIb_4L6E0_AjA3rPpg&s', price: 109.99),
-    
-  ];
-  
+  List<VideoCard> videoCards = []; 
   final List<VideoCard> favorites = [];
   final Cart cart = Cart();
   
   int _selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchVideoCards(); 
+  }
+
+  Future<void> fetchVideoCards() async {
+    final response = await http.get(Uri.parse('http://localhost:8080/products/all'));
+
+    if (response.statusCode == 200) {
+      List<dynamic> jsonResponse = json.decode(response.body);
+      setState(() {
+        videoCards = jsonResponse.map((data) => VideoCard.fromJson(data)).toList();
+      });
+    } else {
+      throw Exception('Failed to load video cards');
+    }
+  }
 
   void _toggleFavorite(VideoCard videoCard) {
     setState(() {
@@ -121,6 +138,15 @@ class _VideoCardsListState extends State<VideoCardsList> {
   }
 
  Widget _buildVideoCardsList() {
+   if (videoCards.isEmpty) {
+     return const Center(
+       child: Text(
+         'Товары не найдены',
+         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+       ),
+     );
+   }
+   
    return GridView.builder(
      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
        crossAxisCount: 2,
@@ -139,7 +165,7 @@ class _VideoCardsListState extends State<VideoCardsList> {
            crossAxisAlignment: CrossAxisAlignment.center,
            children: [
              ClipRRect(
-               borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+               borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                child: Image.network(videoCard.imageUrl, fit: BoxFit.cover),
              ),
              Padding(

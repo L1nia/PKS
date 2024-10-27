@@ -60,9 +60,9 @@ class AddVideoCardScreen extends StatelessWidget {
                 final price = double.tryParse(priceController.text) ?? 0;
                 if (name.isNotEmpty && imageUrl.isNotEmpty && price > 0) {
                   if (videoCard == null) {
-                    onAdd(VideoCard(name:name, imageUrl:imageUrl, price :price, id: null));
+                    onAdd(VideoCard(name:name, imageUrl:imageUrl, price :price, id: null, description: ''));
                   } else {
-                    onEdit(VideoCard(name:name, imageUrl:imageUrl, price :price, id: null));
+                    onEdit(VideoCard(name:name, imageUrl:imageUrl, price :price, id: null, description: ''));
                   }
                   Navigator.pop(context);
                 }

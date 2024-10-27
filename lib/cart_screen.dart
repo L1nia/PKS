@@ -101,13 +101,13 @@ class _CartScreenState extends State<CartScreen> {
       child: ElevatedButton(
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Спасибо за покупку!')));
-        },
-        child: Text('Купить'), 
+        }, 
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blueAccent,
           padding: const EdgeInsets.symmetric(vertical: 15.0),
           textStyle: const TextStyle(fontSize: 18),
         ),
+        child: Text('Купить'),
       ),
     );
   }
@@ -148,7 +148,7 @@ class _QuantityCounter extends StatefulWidget {
   final VideoCard videoCard;
   final Function(double) onQuantityChanged; 
 
-  const _QuantityCounter({super.key, required this.videoCard, required this.onQuantityChanged});
+  const _QuantityCounter({required this.videoCard, required this.onQuantityChanged});
 
   @override
   __QuantityCounterState createState() => __QuantityCounterState();
