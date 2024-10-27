@@ -11,7 +11,8 @@
 # САМА API 
 ![{78AE6AFD-5858-4AF4-AE5D-06610EC0DF17}](https://github.com/user-attachments/assets/29962c1b-651d-432b-a94b-5ff8308a62ad)
 
-
+# КОД РАБОТЫ С API
+('https://github.com/L1nia/PKS/commit/d34a61295b9b89583603856a0a40689fac3cba64#diff-e61eb31d013d12616f5532636a88cfa63631dda8f7829e5424e68542214d1608')
 
 
 
