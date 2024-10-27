@@ -6,8 +6,7 @@ import 'video_card_detail.dart';
 import 'favorites_screen.dart';
 import 'profile_screen.dart';
 import 'cart.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:dio/dio.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); 
@@ -60,15 +59,19 @@ class _VideoCardsListState extends State<VideoCardsList> {
   }
 
   Future<void> fetchVideoCards() async {
-    final response = await http.get(Uri.parse('http://localhost:8080/products/all'));
+    try {
+      final response = await Dio().get('http://localhost:8080/products/all'); 
 
-    if (response.statusCode == 200) {
-      List<dynamic> jsonResponse = json.decode(response.body);
-      setState(() {
-        videoCards = jsonResponse.map((data) => VideoCard.fromJson(data)).toList();
-      });
-    } else {
-      throw Exception('Failed to load video cards');
+      if (response.statusCode == 200) {
+        List<dynamic> jsonResponse = response.data;
+        setState(() {
+          videoCards = jsonResponse.map((data) => VideoCard.fromJson(data)).toList();
+        });
+      } else {
+        throw Exception('Failed to load video cards');
+      }
+    } catch (e) {
+      print('Ошибка: $e');
     }
   }
 
