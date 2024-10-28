@@ -4,14 +4,8 @@
 Работы выполнил студент **ЭФБО-07-22 Шипунов Д.А.** <br>
 -------------------------------------------------------------------------------------------------------------------------
 # ПРАКТИЧЕСКАЯ РАБОТА № 8 
-# ПОПЫТКА ДОБАВЛЕНИЯ API
-![{BA4939E2-C262-4E02-B71E-12EFDD2D8DB0}](https://github.com/user-attachments/assets/8a924989-7476-4feb-ad22-6c4b90134a93)
-# ОШИБКА 
-![{13C3BA73-69A7-4965-A259-FF16F68A415C}](https://github.com/user-attachments/assets/dbf4ed59-9b23-4e92-ab80-b9403aa9aab2)
-# САМА API 
-![{78AE6AFD-5858-4AF4-AE5D-06610EC0DF17}](https://github.com/user-attachments/assets/29962c1b-651d-432b-a94b-5ff8308a62ad)
-
-
+# API
+![{4713D389-FD89-48AF-9951-0D16E445A8D0}](https://github.com/user-attachments/assets/a7c09bc2-90e6-4389-a1ea-190d5b3c87ac)
 
 
 
