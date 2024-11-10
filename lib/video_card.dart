@@ -1,18 +1,35 @@
 class VideoCard {
-     final String name;
-     final String imageUrl;
-     final double price;
-     final String description;
+  final int id;
+  final String imageUrl;
+  final String name;
+  final String description;
+  final double price;
 
-     VideoCard({required this.name, required this.imageUrl, required this.price, required id, required this.description});
-   
-    factory VideoCard.fromJson(Map<String, dynamic> json) {
+  VideoCard({
+    required this.id,
+    required this.imageUrl,
+    required this.name,
+    required this.description,
+    required this.price,
+  });
+
+  factory VideoCard.fromJson(Map<String, dynamic> json) {
     return VideoCard(
-      id: json['ID'],
-      imageUrl: json['ImageURL'],
-      name: json['Name'],
-      price: json['Price'].toDouble(),
-      description: json['Description']
+      id: json['id'],
+      imageUrl: json['imageUrl'],
+      name: json['name'],
+      description: json['description'],
+      price: json['price'].toDouble(),
     );
-   }
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'imageUrl': imageUrl,
+      'name': name,
+      'description': description,
+      'price': price.toDouble(),
+    };
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'cart.dart';
 import 'video_card.dart';
+import 'package:dio/dio.dart';
 
 class CartScreen extends StatefulWidget {
   final Cart cart;
@@ -17,18 +18,34 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     super.initState();
+    fetchCart(); 
     _calculateTotalPrice(); 
   }
 
-  void _calculateTotalPrice() {
-    totalPrice = widget.cart.getItems().fold(0, (sum, item) => sum + item.price); 
-    setState(() {});
+  Future<void> fetchCart() async {
+    try {
+      final response = await Dio().get('http://localhost:8080/cart');
+
+      if (response.statusCode == 200) {
+        List<dynamic> jsonResponse = response.data;
+        setState(() {
+          widget.cart.clear(); 
+          for (var item in jsonResponse) {
+            widget.cart.add(VideoCard.fromJson(item)); 
+          }
+          _calculateTotalPrice(); 
+        });
+      } else {
+        throw Exception('Не удалось загрузить корзину');
+      }
+    } catch (e) {
+      print('Ошибка при загрузке корзины: $e');
+    }
   }
 
-  void _updateTotalPrice(double priceChange) {
-    setState(() {
-      totalPrice += priceChange; 
-    });
+  void _calculateTotalPrice() {
+    totalPrice = widget.cart.getTotalPrice(); 
+    setState(() {});
   }
 
   @override
@@ -41,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
             child: ListView.builder(
               itemCount: widget.cart.getItems().length,
               itemBuilder: (context, index) {
-                VideoCard videoCard = widget.cart.getItems()[index];
+                CartItem cartItem = widget.cart.getItems()[index];
                 return Card(
                   elevation: 2,
                   margin: const EdgeInsets.all(8.0),
@@ -54,21 +71,28 @@ class _CartScreenState extends State<CartScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(videoCard.name, style: const TextStyle(color: Colors.black)),
-                              Text('\$${videoCard.price}', style: const TextStyle(color: Colors.green)),
-                              _QuantityCounter(videoCard: videoCard, onQuantityChanged: _updateTotalPrice),
+                              Text(cartItem.videoCard.name, style: const TextStyle(color: Colors.black)),
+                              Text('\$${cartItem.videoCard.price}', style: const TextStyle(color: Colors.green)),
                             ],
                           ),
                         ),
                         SizedBox(
                           width: 80,
                           height: 80,
-                          child: Image.network(videoCard.imageUrl, fit: BoxFit.cover),
+                          child: Image.network(cartItem.videoCard.imageUrl, fit: BoxFit.cover),
                         ),
                         IconButton(
                           icon: const Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
-                            _confirmDelete(context, videoCard);
+                            _confirmDelete(context, cartItem.videoCard);
+                          },
+                        ),
+                        _QuantityCounter(
+                          videoCard: cartItem.videoCard,
+                          onQuantityChanged: (double priceChange) {
+                            setState(() {
+                              totalPrice += priceChange;
+                            });
                           },
                         ),
                       ],
@@ -107,7 +131,7 @@ class _CartScreenState extends State<CartScreen> {
           padding: const EdgeInsets.symmetric(vertical: 15.0),
           textStyle: const TextStyle(fontSize: 18),
         ),
-        child: Text('Купить'),
+        child: const Text('Купить'),
       ),
     );
   }
