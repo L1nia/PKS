@@ -5,6 +5,18 @@
 
 # ПРАКТИЧЕСКАЯ РАБОТА № 11
 # РАБОТА С БД
+# ТОВАРЫ
+
+![ТОВАРЫ](https://github.com/user-attachments/assets/f242e33d-aafb-4068-b05f-3a2e26886faf)
+![ТОВАРЫ В БД](https://github.com/user-attachments/assets/a7948133-26fb-48f0-8732-74283e818dbb)
+
+# ИЗБРАННОЕ
+![ТОВАРЫ В ИЗБРАННОЕ](https://github.com/user-attachments/assets/d7c05c19-84dc-431e-a208-a052acd277af)
+![ИЗБРАННОЕ В БД](https://github.com/user-attachments/assets/6469c795-e56b-4ffd-8181-5b23f073ec8f)
+
+# КОРЗИНА
+![ТОВАРЫ В КОРЗИНЕ](https://github.com/user-attachments/assets/8e4a1288-8c15-4d7c-b217-50efc6445e13)
+![КОРЗИНА В БД](https://github.com/user-attachments/assets/8f7e7a21-dd89-4381-8e98-dfe70330ff09)
 
 
 -----------------------------------------------------------------------------------------------------------------------
@@ -18,8 +30,18 @@
 ------------------------------------------------------------------------------------------------------------------------
 # ПРАКТИЧЕСКАЯ РАБОТА № 9
 # Добавлена работа с API во вкладках "Избранное" и "Корзина".
-![image](https://github.com/user-attachments/assets/f923d0ab-8a2d-41f4-8906-bc92008780de)
-![image](https://github.com/user-attachments/assets/73727036-bc6e-4e4d-8084-8ae6ee595f13)
+# ТОВАРЫ
+
+![Товары](https://github.com/user-attachments/assets/f923d0ab-8a2d-41f4-8906-bc92008780de)
+![API-запрос в ТОВАРЫ](https://github.com/user-attachments/assets/73727036-bc6e-4e4d-8084-8ae6ee595f13)
+
+# ИЗБРАННОЕ
+![Избранное](https://github.com/user-attachments/assets/f3d4f0aa-890d-486a-8a80-74c25228d9b6)
+![API-запрос в ИЗБРАННОЕ](https://github.com/user-attachments/assets/fe708501-47fc-4169-874c-bcf20899a0f4)
+
+# КОРЗИНА
+![КОРЗИНА](https://github.com/user-attachments/assets/c4f04a81-e8c8-4003-bcfd-7226a62d7159)
+![API-запрос в КОРЗИНУ](https://github.com/user-attachments/assets/d9d71ac3-be9b-4074-a2be-fe6dc02a57f3)
 
 
 
