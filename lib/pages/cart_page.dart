@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart'; 
 import 'package:flutter_application_4/components/cart_item.dart'; 
 import 'package:flutter_application_4/models/cart_model.dart';
+import 'package:flutter_application_4/models/order.dart';
 import 'package:flutter_application_4/api_service.dart';
  
 List<CartModel> cart = <CartModel>[]; 
@@ -47,6 +48,10 @@ class _CartPageState extends State<CartPage> {
       total += item.price * item.count;
     }
     return total;
+  }
+
+  void _createOrder (Order order){
+    ApiService().createOrder(order);
   }
 
   @override  
@@ -146,7 +151,7 @@ class _CartPageState extends State<CartPage> {
                 Padding( 
                   padding: const EdgeInsets.all(16.0), 
                   child: Container( 
-                    decoration: BoxDecoration(color: const Color.fromARGB(255, 0, 0, 0), borderRadius: BorderRadius.circular(8),  
+                    decoration: BoxDecoration(color: const Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.circular(8),  
                         border: Border.all(color: Colors.white, width: 2),), 
                     padding: const EdgeInsets.all(16.0), 
                     child: Row( 
@@ -155,15 +160,28 @@ class _CartPageState extends State<CartPage> {
                         const Text( 
                           'Итого:', 
                           style: TextStyle(fontSize: 24, color: Colors.white), 
-                        ), 
+                        ),
                         Text( 
                           '${_calculateTotal().toString()} ₽', 
                           style: const TextStyle(fontSize: 24, color: Colors.white), 
-                        ), 
+                        ),
                       ], 
                     ), 
                   ), 
-                ), 
+                ),
+                TextButton(
+                  onPressed: () => 
+                    _createOrder(
+                      Order(
+                        id: 1, 
+                        user: 1, 
+                        total: _calculateTotal(), 
+                        status: "", 
+                        // products: cart
+                      )
+                    ),
+                  child: const Text('Оформить заказ')
+                )
               ],
             ),
           );

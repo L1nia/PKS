@@ -92,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: const Color.fromARGB(255, 109, 249, 101),
-        unselectedItemColor: Colors.white, // Цвет для невыбранных элементов
-        selectedLabelStyle: const TextStyle(color: Colors.white), // Цвет для выбранного элемента
+        unselectedItemColor: Colors.white, 
+        selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 0, 255, 0)), // Цвет для выбранного элемента
         unselectedLabelStyle: const TextStyle(color: Colors.white),
         onTap: _onItemTapped,
       ),

@@ -17,7 +17,7 @@ class AddPage extends StatelessWidget {
 
     final TextEditingController _descriptionController = TextEditingController(text: tovar.description);
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text('Добавление товара', style: TextStyle(fontSize: 24, color: Colors.white),),), backgroundColor: Colors.black,
+      appBar: AppBar(title: const Center(child: Text('Добавление товара', style: TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),),), backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -25,7 +25,7 @@ class AddPage extends StatelessWidget {
           children: [
             TextField(
               controller: _urlController,
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              style: const TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),
               decoration: const InputDecoration(
                 labelText: 'Введите URL',
               ),
@@ -33,7 +33,7 @@ class AddPage extends StatelessWidget {
             ),
             TextField(
               controller: _priceController,
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              style: const TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),
               decoration: const InputDecoration(
                 labelText: 'Введите цену',
               ),
@@ -41,7 +41,7 @@ class AddPage extends StatelessWidget {
             ),
             TextField(
               controller: _descriptionController,
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              style: const TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),
               decoration: const InputDecoration(
                 labelText: 'Введите описание',
               ),

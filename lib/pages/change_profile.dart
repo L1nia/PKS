@@ -24,7 +24,7 @@ class ChangeProfile extends StatelessWidget {
           children: [
             TextField(
               controller: _urlController,
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              style: const TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),
               decoration: const InputDecoration(
                 labelText: 'Введите новый URL',
               ),
@@ -32,7 +32,7 @@ class ChangeProfile extends StatelessWidget {
             ),
             TextField(
               controller: _nameController,
-              style: const TextStyle(fontSize: 24, color: Colors.white),
+              style: const TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),
               decoration: const InputDecoration(
                 labelText: 'Введите новое имя',
               ),
