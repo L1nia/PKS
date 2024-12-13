@@ -2,17 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_4/pages/cart_page.dart';
 import 'package:flutter_application_4/pages/home_page.dart';
 import 'package:flutter_application_4/pages/favorite_page.dart';
-import 'package:flutter_application_4/pages/login_page.dart';
+// import 'package:flutter_application_1/pages/login_page.dart';
+// import 'package:flutter_application_1/pages/login_page_2.dart';
 import 'package:flutter_application_4/pages/profile.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_application_4/services/auth/auth_gate_2.dart';
+import 'package:flutter_application_4/services/auth/auth_service_2.dart';
+// import 'package:flutter_application_1/services/auth/login_or_register.dart';
+// import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async{
-  await Supabase.initialize(
-    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZmaW9jY2tvbmpzYW5pb3FrZWh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM3MzAyMzYsImV4cCI6MjA0OTMwNjIzNn0.cjVyHXgysHg9YUyw3baBuHm_BinYtI8AUZ-7p-LNJRE',
-    url: 'https://vfiocckonjsanioqkehx.supabase.co',
+  
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'X_X', 
+      appId: 'X_X', 
+      messagingSenderId: 'X_X', 
+      projectId: 'X_X'
+    )
   );
 
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => AuthService(),
+      child: const MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -46,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     FavoritePage(),
     ProfilePage(),
     CartPage(),
-    LoginPage(),
+    AuthGate2(),
   ];
 
   void _onItemTapped(int index) {
@@ -91,9 +109,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(255, 109, 249, 101),
+        selectedItemColor: const Color.fromARGB(255, 113, 255, 120),
         unselectedItemColor: Colors.white, 
-        selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 0, 255, 0)), // Цвет для выбранного элемента
+        selectedLabelStyle: const TextStyle(color: Color.fromARGB(255, 120, 245, 120)), 
         unselectedLabelStyle: const TextStyle(color: Colors.white),
         onTap: _onItemTapped,
       ),

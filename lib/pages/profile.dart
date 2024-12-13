@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/api_service.dart';
-import 'package:flutter_application_4/authorization/auth_service.dart';
 import 'package:flutter_application_4/components/order_item.dart';
 import 'package:flutter_application_4/models/order.dart';
 import 'package:flutter_application_4/models/profile_model.dart';
 import 'package:flutter_application_4/pages/change_profile.dart';
 
 Profile profile = Profile(
-  url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_a8-t33HEfFvhddCYIb_4L6E0_AjA3rPpg&s',
+  url:'https://img.icons8.com/?size=100&id=x6i6xezEsG_E&format=png&color=000000',
   name:'',
 );
 List<Order> orders = [];
@@ -30,12 +29,6 @@ class _ProfilePageState extends State<ProfilePage> {
     _orders = ApiService().getOrders();
   }
 
-  final authService = AuthService();
-
-  void logout() async {
-    await authService.signOut();
-  }
-
   void _changeProfile(Profile profile2) {
     setState(() {
       profile = profile2;
@@ -44,18 +37,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    final currentEmail = authService.getCurrentUserEmail();
-
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('ПРОФИЛЬ', style: TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),),), backgroundColor: Colors.black,
-        actions: [
-          IconButton(
-            onPressed: logout,
-            icon: const Icon(Icons.logout))
-        ],
-      ),
+        title: const Center(child: Text('ПРОФИЛЬ', style: TextStyle(fontSize: 24, color: Color.fromARGB(255, 0, 0, 0)),),), backgroundColor: const Color.fromARGB(255, 255, 255, 255),),
       backgroundColor:  const Color.fromARGB(255, 255, 255, 255),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -74,16 +58,16 @@ class _ProfilePageState extends State<ProfilePage> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8), 
+                        borderRadius: BorderRadius.circular(8), // Image border
                         child: SizedBox.fromSize(
-                          size: const Size.fromRadius(130), 
+                          size: const Size.fromRadius(130), // Image radius
                           child: Image.asset(profile.url, fit: BoxFit.cover),
                         ),
                       )
                     ),
                     Padding(
                       padding: const EdgeInsets.all(0),
-                      child: Text(currentEmail.toString(), style: const TextStyle(fontSize: 32, color: Color.fromARGB(255, 0, 0, 0)),),
+                      child: Text('null', style: const TextStyle(fontSize: 32, color: Color.fromARGB(255, 0, 0, 0)),),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -95,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8)),
                             side: BorderSide(
-                              color: Colors.white,
+                              color: Color.fromARGB(255, 0, 0, 0),
                               width: 2,
                             ),
                           ),
